@@ -1,6 +1,7 @@
 ﻿using System;
 using Binance.Net.Interfaces;
 using CryptoExchange.Net.Converters;
+using CryptoExchange.Net.Trackers;
 using Newtonsoft.Json;
 
 namespace Binance.Net.Objects.Models.Spot
@@ -8,7 +9,7 @@ namespace Binance.Net.Objects.Models.Spot
     /// <summary>
     /// Recent trade info
     /// </summary>
-    public abstract class BinanceRecentTrade: IBinanceRecentTrade
+    public abstract class BinanceRecentTrade: IBinanceRecentTrade, ITradeItem
     {
         /// <summary>
         /// The id of the trade
@@ -37,6 +38,10 @@ namespace Binance.Net.Objects.Models.Spot
         /// Whether the trade was made at the best match
         /// </summary>
         public bool IsBestMatch { get; set; }
+
+        string ITradeItem.Id => OrderId.ToString();
+        DateTime ITradeItem.Timestamp => TradeTime;
+        decimal ITradeItem.Quantity => BaseQuantity;
     }
 
     /// <summary>

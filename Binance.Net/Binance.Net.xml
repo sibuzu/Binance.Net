@@ -27468,6 +27468,47 @@
         <member name="M:Binance.Net.SymbolOrderBooks.BinanceSpotSymbolOrderBook.Dispose(System.Boolean)">
             <inheritdoc />
         </member>
+        <member name="M:Binance.Net.Trackers.BinanceTrackerFactory.#ctor(System.IServiceProvider)">
+            <summary>
+            ctor
+            </summary>
+            <param name="serviceProvider">Service provider for resolving logging and clients</param>
+        </member>
+        <member name="M:Binance.Net.Trackers.BinanceTrackerFactory.CreateSpotOrderBook(System.String,System.Action{Binance.Net.Objects.Options.BinanceOrderBookOptions})">
+            <inheritdoc />
+        </member>
+        <member name="M:Binance.Net.Trackers.BinanceTrackerFactory.CreateSpotKlineTracker(System.String,Binance.Net.Enums.KlineInterval,System.Nullable{System.Int32},System.Nullable{System.TimeSpan})">
+            <inheritdoc />
+        </member>
+        <member name="M:Binance.Net.Trackers.BinanceTrackerFactory.CreateSpotTradeTracker(System.String,System.Nullable{System.Int32},System.Nullable{System.TimeSpan})">
+            <inheritdoc />
+        </member>
+        <member name="T:Binance.Net.Trackers.BinanceTradeTracker">
+            <summary>
+            Binance trade tracker
+            </summary>
+        </member>
+        <member name="M:Binance.Net.Trackers.BinanceTradeTracker.#ctor(System.String,System.Nullable{System.Int32},System.Nullable{System.TimeSpan})">
+            <summary>
+            ctor
+            </summary>
+            <param name="symbol"></param>
+            <param name="limit"></param>
+            <param name="period"></param>
+        </member>
+        <member name="M:Binance.Net.Trackers.BinanceTradeTracker.#ctor(System.String,System.Nullable{System.Int32},System.Nullable{System.TimeSpan},Binance.Net.Interfaces.Clients.IBinanceSocketClient,Microsoft.Extensions.Logging.ILogger{Binance.Net.Trackers.BinanceTradeTracker})">
+            <summary>
+            ctor
+            </summary>
+            <param name="symbol"></param>
+            <param name="limit"></param>
+            <param name="period"></param>
+            <param name="socketClient"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Binance.Net.Trackers.BinanceTradeTracker.DoStartAsync">
+            <inheritdoc />
+        </member>
         <member name="T:CryptoExchange.Net.Interfaces.CryptoClientExtensions">
             <summary>
             Extensions for the ICryptoRestClient and ICryptoSocketClient interfaces

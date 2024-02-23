@@ -3,6 +3,7 @@ using Binance.Net.Interfaces;
 using Binance.Net.Interfaces.Clients;
 using Binance.Net.Objects.Options;
 using Binance.Net.SymbolOrderBooks;
+using Binance.Net.Trackers;
 using CryptoExchange.Net.Clients;
 using CryptoExchange.Net.Interfaces;
 using System;
@@ -60,6 +61,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddTransient<ICryptoRestClient, CryptoRestClient>();
             services.AddSingleton<ICryptoSocketClient, CryptoSocketClient>();
             services.AddSingleton<IBinanceOrderBookFactory, BinanceOrderBookFactory>();
+            services.AddSingleton<BinanceTrackerFactory>();
             services.AddTransient(x => x.GetRequiredService<IBinanceRestClient>().SpotApi.CommonSpotClient);
             services.AddTransient(x => x.GetRequiredService<IBinanceRestClient>().UsdFuturesApi.CommonFuturesClient);
             services.AddTransient(x => x.GetRequiredService<IBinanceRestClient>().CoinFuturesApi.CommonFuturesClient);

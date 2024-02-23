@@ -3,6 +3,7 @@ using Binance.Net.Converters;
 using Binance.Net.Enums;
 using Binance.Net.Interfaces;
 using CryptoExchange.Net.Converters;
+using CryptoExchange.Net.Trackers;
 using Newtonsoft.Json;
 
 namespace Binance.Net.Objects.Models.Spot.Socket
@@ -29,7 +30,7 @@ namespace Binance.Net.Objects.Models.Spot.Socket
     /// <summary>
     /// The kline data
     /// </summary>
-    public class BinanceStreamKline: BinanceKlineBase, IBinanceStreamKline
+    public class BinanceStreamKline: BinanceKlineBase, IBinanceStreamKline, IKlineItem
     {
         /// <summary>
         /// The open time of this candlestick

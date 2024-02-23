@@ -1,6 +1,7 @@
 ﻿using System;
 using Binance.Net.Interfaces;
 using CryptoExchange.Net.Converters;
+using CryptoExchange.Net.Trackers;
 using Newtonsoft.Json;
 
 namespace Binance.Net.Objects.Models.Spot.Socket
@@ -8,7 +9,7 @@ namespace Binance.Net.Objects.Models.Spot.Socket
     /// <summary>
     /// Aggregated information about trades for a symbol
     /// </summary>
-    public class BinanceStreamTrade: BinanceStreamEvent, IBinanceTrade
+    public class BinanceStreamTrade : BinanceStreamEvent, IBinanceTrade, ITradeItem
     {
         /// <summary>
         /// The symbol the trade was for
@@ -56,5 +57,8 @@ namespace Binance.Net.Objects.Models.Spot.Socket
         /// </summary>
         [JsonProperty("M")]
         public bool IsBestMatch { get; set; }
+
+        DateTime ITradeItem.Timestamp => TradeTime;
+        string ITradeItem.Id => Id.ToString();
     }
 }

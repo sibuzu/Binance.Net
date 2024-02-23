@@ -1,4 +1,5 @@
 ﻿using CryptoExchange.Net.Converters;
+using CryptoExchange.Net.Trackers;
 using Newtonsoft.Json;
 
 namespace Binance.Net.Objects.Models.Spot
@@ -7,7 +8,7 @@ namespace Binance.Net.Objects.Models.Spot
     /// Candlestick information for symbol
     /// </summary>
     [JsonConverter(typeof(ArrayConverter))]
-    public class BinanceSpotKline: BinanceKlineBase
+    public class BinanceSpotKline: BinanceKlineBase, IKlineItem
     {
         /// <summary>
         /// The volume traded during this candlestick
