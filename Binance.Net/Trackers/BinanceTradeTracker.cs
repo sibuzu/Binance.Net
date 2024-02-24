@@ -4,7 +4,7 @@ using Binance.Net.Interfaces.Clients;
 using Binance.Net.Objects.Models.Spot.Socket;
 using CryptoExchange.Net.Objects;
 using CryptoExchange.Net.Objects.Sockets;
-using CryptoExchange.Net.Trackers;
+using CryptoExchange.Net.Trackers.Trades;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;

@@ -1,7 +1,7 @@
 ﻿using System;
 using Binance.Net.Interfaces;
 using CryptoExchange.Net.Converters;
-using CryptoExchange.Net.Trackers;
+using CryptoExchange.Net.Trackers.Trades;
 using Newtonsoft.Json;
 
 namespace Binance.Net.Objects.Models.Spot.Socket

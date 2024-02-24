@@ -3,7 +3,7 @@ using Binance.Net.Converters;
 using Binance.Net.Enums;
 using Binance.Net.Interfaces;
 using CryptoExchange.Net.Converters;
-using CryptoExchange.Net.Trackers;
+using CryptoExchange.Net.Trackers.Klines;
 using Newtonsoft.Json;
 
 namespace Binance.Net.Objects.Models.Spot.Socket
