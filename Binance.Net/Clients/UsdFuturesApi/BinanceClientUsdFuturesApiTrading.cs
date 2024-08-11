@@ -133,8 +133,35 @@ namespace Binance.Net.Clients.UsdFuturesApi
                 });
             return result;
         }
+        #endregion
 
-
+        #region Edit Order
+        /// <inheritdoc />
+        public async Task<WebCallResult<BinanceFuturesOrder>> EditOrderAsync(
+            string symbol, 
+            long orderId,
+            OrderSide side, 
+            decimal quantity,
+            decimal price)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                { "symbol", symbol },
+                { "side", JsonConvert.SerializeObject(side, new OrderSideConverter(false)) },
+                { "orderId", orderId.ToString() },
+                { "quantity", quantity.ToString() },
+                { "price", price.ToString() },
+            };
+            CancellationToken ct = default;
+            var result = await _baseClient.SendRequestInternal<BinanceFuturesOrder>(_baseClient.GetUrl(newOrderEndpoint, api, "1"), HttpMethod.Put, ct, parameters, true).ConfigureAwait(false);
+            if (result)
+                _baseClient.InvokeOrderPlaced(new OrderId
+                {
+                    SourceObject = result.Data,
+                    Id = result.Data.Id.ToString(CultureInfo.InvariantCulture)
+                });
+            return result;
+        }
         #endregion
 
         #region Multiple New Orders

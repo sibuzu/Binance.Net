@@ -57,6 +57,13 @@ namespace Binance.Net.Interfaces.Clients.UsdFuturesApi
             int? receiveWindow = null,
             CancellationToken ct = default);
 
+        Task<WebCallResult<BinanceFuturesOrder>> EditOrderAsync(
+            string symbol, 
+            long orderId, 
+            OrderSide side,
+            decimal qty,
+            decimal price);
+
         /// <summary>
         /// Place multiple orders in one call
         /// <para><a href="https://binance-docs.github.io/apidocs/futures/en/#place-multiple-orders-trade" /></para>
